@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirana Vision - AI-Powered Retail Automation</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .scanning-area {
+            border: 2px dashed #3b82f6;
+            border-radius: 0.375rem;
+            background-color: rgba(59, 130, 246, 0.05);
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .video-feed {
+            border-radius: 0.375rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Hero Section -->
+    <div id="vanta-globe" class="relative min-h-screen flex flex-col">
+        <!-- Navigation -->
+        <nav class="absolute top-0 left-0 right-0 z-50 py-4 bg-white/90 backdrop-blur-sm shadow-sm">
+            <div class="container mx-auto px-6 flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i data-feather="shopping-cart" class="text-blue-500"></i>
+                    <span class="text-xl font-bold gradient-text">Kirana Vision</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#features" class="text-gray-700 hover:text-blue-600 transition">Features</a>
+                    <a href="#how-it-works" class="text-gray-700 hover:text-blue-600 transition">How It Works</a>
+                    <a href="#demo" class="text-gray-700 hover:text-blue-600 transition">Live Demo</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-blue-600 transition">Pricing</a>
+                </div>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full shadow-md transition">
+                    Get Started
+                </button>
+            </div>
+        </nav>
+
+        <!-- Hero Content -->
+        <div class="flex-grow flex items-center z-10">
+            <div class="container mx-auto px-6 py-24">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        <span class="gradient-text">Automate</span> Your Retail Store with AI
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-10">
+                        Kirana Vision uses computer vision to recognize products instantly, generate accurate bills, and streamline checkout processes for small retailers.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full shadow-lg transition flex items-center justify-center">
+                            <i data-feather="play" class="mr-2"></i> Watch Demo
+                        </button>
+                        <button class="bg-white hover:bg-gray-100 text-blue-600 border border-blue-600 px-8 py-3 rounded-full shadow-lg transition flex items-center justify-center">
+                            <i data-feather="download" class="mr-2"></i> Download App
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center">
+            <a href="#features" class="animate-bounce">
+                <i data-feather="chevron-down" class="text-gray-400 h-10 w-10"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Revolutionary Features</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Transform your retail operations with our AI-powered solution</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="eye" class="text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Instant Product Recognition</h3>
+                    <p class="text-gray-600">Our advanced computer vision instantly identifies products without barcode scanning.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="dollar-sign" class="text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Automatic Billing</h3>
+                    <p class="text-gray-600">Generates accurate bills in real-time as products are recognized.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="database" class="text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Inventory Management</h3>
+                    <p class="text-gray-600">Automatically tracks inventory levels and alerts when items need restocking.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="smartphone" class="text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Mobile Friendly</h3>
+                    <p class="text-gray-600">Works on any device with a camera - smartphones, tablets, or computers.</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="bar-chart-2" class="text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Sales Analytics</h3>
+                    <p class="text-gray-600">Provides valuable insights into sales patterns and customer preferences.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="cloud" class="text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Cloud Sync</h3>
+                    <p class="text-gray-600">Syncs data across multiple devices and stores with optional cloud backup.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">How It Works</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Simple setup, powerful results - see Kirana Vision in action</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="mb-8">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-blue-100 text-blue-600 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+                                <span class="font-bold">1</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Set Up Your Product Database</h3>
+                                <p class="text-gray-600">Simply take photos of your products or upload existing images. Our system will learn to recognize them instantly.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-green-100 text-green-600 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+                                <span class="font-bold">2</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Train the AI Model</h3>
+                                <p class="text-gray-600">Our system automatically trains a custom AI model optimized for your specific inventory.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-purple-100 text-purple-600 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+                                <span class="font-bold">3</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Start Scanning Products</h3>
+                                <p class="text-gray-600">Hold products in front of your device's camera or use our dedicated scanning station.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex items-start mb-4">
+                            <div class="bg-yellow-100 text-yellow-600 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+                                <span class="font-bold">4</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Generate Bills Automatically</h3>
+                                <p class="text-gray-600">The system instantly adds recognized items to the bill and calculates totals.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <img src="http://static.photos/retail/1024x576/42" alt="How Kirana Vision works" class="rounded-lg w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Demo Section -->
+    <section id="demo" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Try Our Live Demo</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Experience the power of AI-powered product recognition</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-gray-100 rounded-xl p-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Scanning Area</h3>
+                        <div class="scanning-area h-64 flex items-center justify-center mb-4">
+                            <div class="text-center">
+                                <i data-feather="camera" class="h-10 w-10 text-blue-500 mx-auto mb-3"></i>
+                                <p class="text-blue-500 font-medium">Point your camera at a product</p>
+                            </div>
+                        </div>
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg shadow-md transition">
+                            <i data-feather="camera" class="mr-2"></i> Start Scanning
+                        </button>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Current Bill</h3>
+                        <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
+                            <div class="flex justify-between border-b border-gray-100 pb-3 mb-3">
+                                <span class="font-medium">Item</span>
+                                <span class="font-medium">Price</span>
+                            </div>
+                            
+                            <div class="flex justify-between py-2 border-b border-gray-100">
+                                <span>Maggi Noodles (70g)</span>
+                                <span>₹30</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-gray-100">
+                                <span>Parle-G Biscuits (100g)</span>
+                                <span>₹10</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-gray-100">
+                                <span>Dettol Soap (75g)</span>
+                                <span>₹25</span>
+                            </div>
+                            
+                            <div class="flex justify-between pt-4 font-bold">
+                                <span>Total</span>
+                                <span>₹65</span>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-3">
+                            <button class="bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg shadow-sm transition">
+                                <i data-feather="credit-card" class="mr-2"></i> Pay Now
+                            </button>
+                            <button class="bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 rounded-lg shadow-sm transition">
+                                <i data-feather="printer" class="mr-2"></i> Print Bill
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Choose the plan that fits your business needs</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Basic Plan -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-2">Basic</h3>
+                        <p class="text-gray-600 mb-6">Perfect for small shops just getting started</p>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold">₹499</span>
+                            <span class="text-gray-500">/month</span>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Up to 100 products</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>1 device</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Basic product recognition</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="x" class="text-gray-400 mr-2"></i>
+                                <span class="text-gray-400">Inventory management</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="x" class="text-gray-400 mr-2"></i>
+                                <span class="text-gray-400">Cloud sync</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-blue-100 hover:bg-blue-200 text-blue-600 py-3 rounded-lg transition">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Pro Plan -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform scale-105 relative">
+                    <div class="absolute top-0 right-0 bg-blue-600 text-white px-4 py-1 text-xs font-bold rounded-bl-lg">
+                        MOST POPULAR
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-2">Pro</h3>
+                        <p class="text-gray-600 mb-6">For growing retail businesses</p>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold">₹999</span>
+                            <span class="text-gray-500">/month</span>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Up to 500 products</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>3 devices</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Advanced product recognition</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Inventory management</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Cloud sync</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Enterprise Plan -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-2">Enterprise</h3>
+                        <p class="text-gray-600 mb-6">For large stores and chains</p>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold">₹2,999</span>
+                            <span class="text-gray-500">/month</span>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Unlimited products</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>10 devices</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Premium product recognition</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Advanced inventory management</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Priority support</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-blue-100 hover:bg-blue-200 text-blue-600 py-3 rounded-lg transition">
+                            Contact Sales
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Retail Business?</h2>
+            <p class="text-xl text-blue-100 max-w-2xl mx-auto mb-10">Join thousands of retailers who are saving time and increasing sales with Kirana Vision</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-white hover:bg-gray-100 text-blue-600 px-8 py-3 rounded-full shadow-lg transition font-bold">
+                    Start Free Trial
+                </button>
+                <button class="border-2 border-white hover:bg-white/10 px-8 py-3 rounded-full shadow-lg transition font-bold">
+                    Schedule Demo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i data-feather="shopping-cart" class="text-blue-500"></i>
+                        <span class="text-xl font-bold text-white">Kirana Vision</span>
+                    </div>
+                    <p class="mb-4">AI-powered retail automation for small businesses.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-white transition">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="#" class="hover:text-white transition">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#" class="hover:text-white transition">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="#" class="hover:text-white transition">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4">Product</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition">Features</a></li>
+                        <li><a href="#" class="hover:text-white transition">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white transition">Demo</a></li>
+                        <li><a href="#" class="hover:text-white transition">Updates</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition">About</a></li>
+                        <li><a href="#" class="hover:text-white transition">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white transition">Documentation</a></li>
+                        <li><a href="#" class="hover:text-white transition">Community</a></li>
+                        <li><a href="#" class="hover:text-white transition">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p>© 2023 Kirana Vision. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                    <a href="#" class="hover:text-white transition">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Vanta.js globe animation
+        VANTA.GLOBE({
+            el: "#vanta-globe",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x3b82f6,
+            backgroundColor: 0xf8fafc,
+            size: 1.00
+        });
+        
+        // Initialize Feather Icons
+        feather.replace();
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
